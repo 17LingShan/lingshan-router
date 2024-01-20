@@ -13,11 +13,13 @@ export default function HashRouter({ children }: HashRouterProps) {
   useEffect(() => {
     window.location.hash = window.location.hash.slice(1) || "/";
 
-    window.addEventListener("hashchange", () => {
+    const handleHashChange = () => {
       setHashLocation({
-        pathname: window.location.hash.slice(1),
+        pathname: window.location.hash.slice(1) || "/",
       });
-    });
+    };
+
+    window.addEventListener("hashchange", handleHashChange);
   }, []);
 
   return (

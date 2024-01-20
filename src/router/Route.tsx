@@ -1,22 +1,25 @@
-import { ElementType, useContext } from "react";
+import { useContext } from "react";
 import RouterContext from "./RouterContext";
+import { pathToRegexp } from "path-to-regexp";
 
 interface RouteProps {
   path: string;
-  element: ElementType;
+  element: JSX.Element;
   exact?: boolean;
 }
 
 export default function Route({
   path,
-  element: Element,
+  element,
   exact = false,
-}: RouteProps) {
+}: RouteProps): JSX.Element | null {
   const { location } = useContext(RouterContext);
   const { pathname } = location;
+  const reg = pathToRegexp(path, [], { end: exact });
 
-  if (path === pathname) {
-    return <Element {...location} />;
+  if (reg.test(pathname)) {
+    return element;
   }
+
   return null;
 }

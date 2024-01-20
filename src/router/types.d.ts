@@ -2,8 +2,10 @@ interface HashLocation {
   pathname: string;
 }
 
+type RouteTo = HashLocation | string;
+
 interface HashHistory {
-  push: (to: HashLocation | string) => void;
+  push: (to: RouteTo) => void;
 }
 
 interface HashState {

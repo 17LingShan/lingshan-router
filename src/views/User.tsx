@@ -1,3 +1,15 @@
+import { useEffect } from "react";
+import Link from "../router/Link";
+
 export default function User() {
-  return <h1>User</h1>;
+  useEffect(() => {
+    console.log("update User");
+  }, []);
+
+  return (
+    <>
+      <Link to="/">home</Link>
+      <h1>User</h1>
+    </>
+  );
 }
