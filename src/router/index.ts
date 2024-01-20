@@ -1,3 +1,3 @@
-import HashRouter from "./hashRouter";
+import HashRouter from "./HashRouter";
 
 export { HashRouter };

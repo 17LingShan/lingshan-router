@@ -1,10 +1,10 @@
-import { ReactNode, useContext } from "react";
+import { ElementType, useContext } from "react";
 import RouterContext from "./RouterContext";
 
 interface RouteProps {
   path: string;
-  exact: boolean;
-  element: ReactNode;
+  element: ElementType;
+  exact?: boolean;
 }
 
 export default function Route({
@@ -15,9 +15,8 @@ export default function Route({
   const { location } = useContext(RouterContext);
   const { pathname } = location;
 
-  if (exact && path === pathname) {
-    return <></>;
+  if (path === pathname) {
+    return <Element {...location} />;
   }
-
   return null;
 }
