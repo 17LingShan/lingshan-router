@@ -9,5 +9,9 @@ interface LinkProps {
 export default function Link({ to, children }: LinkProps) {
   const context = useContext(RouterContext);
 
-  return <a onClick={() => context.history.push(to)}>{children}</a>;
+  return (
+    <a style={{ userSelect: "none" }} onClick={() => context.history.push(to)}>
+      {children}
+    </a>
+  );
 }

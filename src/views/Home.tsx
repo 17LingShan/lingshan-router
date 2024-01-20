@@ -7,7 +7,6 @@ export default function Home() {
   }, []);
   return (
     <>
-      <Link to="/user">User</Link>
       <h1>Home</h1>
     </>
   );

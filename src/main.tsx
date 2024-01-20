@@ -7,10 +7,12 @@ import Home from "./views/Home.tsx";
 import User from "./views/User.tsx";
 import Redirect from "./router/Redirect.tsx";
 import Switch from "./router/Switch.tsx";
+import Nav from "./components/Nav.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <HashRouter>
+      <Nav />
       <Switch>
         <Route path="/" exact={true} element={<Home />} />
         <Route path="/user" element={<User />} />
