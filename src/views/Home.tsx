@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import Link from "../router/Link";
 
 export default function Home() {
   useEffect(() => {

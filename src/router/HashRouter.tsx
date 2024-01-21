@@ -1,5 +1,6 @@
 import { useEffect, useState, ReactNode } from "react";
 import RouterContext from "./RouterContext";
+import { HashLocation } from "./types";
 
 interface HashRouterProps {
   children: ReactNode;
@@ -20,6 +21,10 @@ export default function HashRouter({ children }: HashRouterProps) {
     };
 
     window.addEventListener("hashchange", handleHashChange);
+
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
   }, []);
 
   return (
